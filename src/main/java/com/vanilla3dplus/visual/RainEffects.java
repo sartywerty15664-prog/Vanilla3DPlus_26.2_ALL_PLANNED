@@ -56,7 +56,7 @@ public final class RainEffects {
             }
 
             double px = x + random.nextDouble();
-            double py = surface.getY() + 6.0 + random.nextDouble() * 7.0;
+            double py = surfaceY + 6.0 + random.nextDouble() * 7.0;
             double pz = z + random.nextDouble();
 
             level.addParticle(

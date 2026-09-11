@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.ArmorRenderer;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.renderer.OrderedSubmitNodeCollector;
 import net.minecraft.client.renderer.SubmitNodeCollector;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.client.renderer.entity.state.HumanoidRenderState;
 import net.minecraft.client.renderer.rendertype.RenderType;
 import net.minecraft.resources.Identifier;
@@ -51,7 +52,7 @@ public final class ArmorModelRenderer {
         }
 
         Identifier texture = armorTexture(armor, slot);
-        RenderType renderType = RenderType.armorCutoutNoCull(texture);
+        RenderType renderType = RenderType.entityCutoutNoCull(texture);
         int tint = tintColor(stack, armor, (System.currentTimeMillis() % 8000L) * 0.001f);
 
         ArmorRenderer.submitTransformCopyingModel(
