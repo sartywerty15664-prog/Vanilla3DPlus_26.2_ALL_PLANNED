@@ -101,7 +101,7 @@ public final class ArmorModelRenderer {
          *
          * ArmorRenderer only needs a valid RenderType here.
          */
-        RenderType renderType = RenderType.entityCutout(texture);
+        RenderType renderType = RenderType.entityCutoutNoCull(texture);
 
         float animationTime =
                 (System.currentTimeMillis() % 6000L) / 1000.0f;
