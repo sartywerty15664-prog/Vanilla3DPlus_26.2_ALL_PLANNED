@@ -4,7 +4,6 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.vanilla3dplus.config.Vanilla3DPlusConfig;
 import net.fabricmc.fabric.api.client.rendering.v1.level.LevelRenderContext;
 import net.fabricmc.fabric.api.client.rendering.v1.level.LevelRenderEvents;
-import net.fabricmc.fabric.api.renderer.v1.render.FabricRenderCommandQueue;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.core.BlockPos;
@@ -36,8 +35,6 @@ public final class ReliefRenderer {
 
         Minecraft client = Minecraft.getInstance();
         if (client.player == null || client.level == null) return;
-        if (!(context.submitNodeCollector() instanceof FabricRenderCommandQueue queue)) return;
-
         int radius = switch (Vanilla3DPlusConfig.quality) {
             case LOW -> 2;
             case MEDIUM -> 3;
@@ -63,14 +60,7 @@ public final class ReliefRenderer {
                 if (block.isAir() || block.is(Blocks.WATER) || block.is(Blocks.LAVA)) continue;
                 if (!client.level.getBlockState(surface.above()).isAir()) continue;
 
-                poseStack.pushPose();
-                poseStack.translate(surface.getX() - client.gameRenderer.getMainCamera().getPosition().x,
-                        surface.getY() - client.gameRenderer.getMainCamera().getPosition().y + 0.012,
-                        surface.getZ() - client.gameRenderer.getMainCamera().getPosition().z);
-                poseStack.scale(1.002f, 1.002f, 1.002f);
-                queue.submitBlock(poseStack, block, 0x00F4F8FF, 0, 0, client.level, surface);
-                poseStack.popPose();
-                submitted++;
+                
             }
         }
     }

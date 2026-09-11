@@ -44,14 +44,14 @@ public final class RainEffects {
             int z = player.blockPosition().getZ()
                     + random.nextInt(radius * 2 + 1) - radius;
 
-            BlockPos surface = level.getHeight(
+            int surfaceY = level.getHeight(
                     net.minecraft.world.level.levelgen.Heightmap.Types.MOTION_BLOCKING,
                     x,
                     z
             );
 
-            if (surface.getY() < player.getY() - 6
-                    || surface.getY() > player.getY() + 18) {
+            if (surfaceY() < player.getY() - 6
+                    || surfaceY() > player.getY() + 18) {
                 continue;
             }
 
