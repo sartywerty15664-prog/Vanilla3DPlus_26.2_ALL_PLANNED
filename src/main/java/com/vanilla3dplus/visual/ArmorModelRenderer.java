@@ -7,6 +7,7 @@ import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.renderer.OrderedSubmitNodeCollector;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.rendertype.RenderType;
+import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.client.renderer.entity.state.HumanoidRenderState;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -101,7 +102,7 @@ public final class ArmorModelRenderer {
          *
          * ArmorRenderer only needs a valid RenderType here.
          */
-        RenderType renderType = RenderType.entityCutoutNoCull(texture);
+        RenderType renderType = RenderTypes.armorCutoutNoCull(texture);
 
         float animationTime =
                 (System.currentTimeMillis() % 6000L) / 1000.0f;
