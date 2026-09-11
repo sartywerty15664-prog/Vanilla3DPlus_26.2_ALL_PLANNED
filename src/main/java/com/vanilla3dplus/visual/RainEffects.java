@@ -50,8 +50,8 @@ public final class RainEffects {
                     z
             );
 
-            if (surfaceY() < player.getY() - 6
-                    || surfaceY() > player.getY() + 18) {
+            if (surfaceY < player.getY() - 6
+                    || surfaceY > player.getY() + 18) {
                 continue;
             }
 
